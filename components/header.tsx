@@ -9,6 +9,7 @@ import { onEntryChange } from '../contentstack-sdk';
 import { getAllEntries, getHeaderRes } from '../helper';
 import Skeleton from 'react-loading-skeleton';
 import { HeaderProps, Entry, NavLinks } from "../typescript/layout";
+import CartIcon from './cart-icon';
 
 export default function Header() {
   const [header, setHeaderProp] = useState<HeaderProps | undefined>(undefined);
@@ -128,13 +129,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* <div className='json-preview'>
-          <Tooltip content='JSON Preview' direction='top' dynamic={false} delay={200} status={0}>
-            <span data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
-              <img src='/json.svg' alt='JSON Preview icon' />
-            </span>
-          </Tooltip>
-        </div> */}
+        <CartIcon />
       </div>
     </header>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useCart } from "@/context/CartContext";
 
 const necklaces = [
   {
@@ -48,6 +49,18 @@ const necklaces = [
 ];
 
 export default function NecklacesPage() {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (product: typeof necklaces[0]) => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      category: "Necklaces",
+    });
+  };
+
   return (
     <div className="category-page">
       <div className="category-banner">
@@ -66,7 +79,9 @@ export default function NecklacesPage() {
                 <h3 className="product-name">{product.name}</h3>
                 <p className="product-description">{product.description}</p>
                 <p className="product-price">{product.price}</p>
-                <button className="add-to-cart-btn">Add to Cart</button>
+                <button className="add-to-cart-btn" onClick={() => handleAddToCart(product)}>
+                  Add to Cart
+                </button>
               </div>
             </div>
           ))}
