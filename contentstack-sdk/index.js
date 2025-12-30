@@ -3,16 +3,14 @@ import * as Utils from '@contentstack/utils';
 import ContentstackLivePreview from '@contentstack/live-preview-utils';
 
 // Validate required environment variables
-const apiKey = process.env.CONTENTSTACK_API_KEY || process.env.NEXT_PUBLIC_CONTENTSTACK_API_KEY;
-const deliveryToken = process.env.CONTENTSTACK_DELIVERY_TOKEN;
-const environment = process.env.CONTENTSTACK_ENVIRONMENT;
+const apiKey = process.env.CONTENTSTACK_API_KEY || process.env.NEXT_PUBLIC_CONTENTSTACK_API_KEY || 'placeholder';
+const deliveryToken = process.env.CONTENTSTACK_DELIVERY_TOKEN || 'placeholder';
+const environment = process.env.CONTENTSTACK_ENVIRONMENT || 'production';
 
-if (!apiKey || !deliveryToken || !environment) {
-  console.warn('Contentstack SDK: Missing required environment variables:', {
-    hasApiKey: !!apiKey,
-    hasDeliveryToken: !!deliveryToken,
-    hasEnvironment: !!environment,
-  });
+const isCmsConfigured = apiKey !== 'placeholder' && deliveryToken !== 'placeholder';
+
+if (!isCmsConfigured) {
+  console.info('Contentstack SDK: Running in static mode (CMS not configured)');
 }
 
 // Initialize Stack
