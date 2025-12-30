@@ -3,18 +3,20 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import TestimonialsBanner from "@/components/testimonials-banner";
+import JewelryHeroBanner from "@/components/jewelry-hero-banner";
 
 import 'react-loading-skeleton/dist/skeleton.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Contentstack-Nextjs-Starter-App",
-  applicationName: "Contentstack-Nextjs-Starter-App",
+  title: "KRISHNA JEWELLERY - Fine Handcrafted Jewelry",
+  applicationName: "KRISHNA JEWELLERY",
 };
 
 export const viewport: Viewport = {
-  themeColor: '#317EFB',
+  themeColor: '#d4af37',
   initialScale: 1,
   minimumScale: 1,
   width: 'device-width',
@@ -52,9 +54,11 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Header />
-        <main className='mainClass mt-5'>
+        <JewelryHeroBanner />
+        <main className='mainClass'>
           {children}
         </main>
+        <TestimonialsBanner />
         <Footer />
         <Script
           src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'

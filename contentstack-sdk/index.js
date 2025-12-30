@@ -2,13 +2,24 @@ import * as contentstack from 'contentstack';
 import * as Utils from '@contentstack/utils';
 import ContentstackLivePreview from '@contentstack/live-preview-utils';
 
+// Validate required environment variables
+const apiKey = process.env.CONTENTSTACK_API_KEY || process.env.NEXT_PUBLIC_CONTENTSTACK_API_KEY;
+const deliveryToken = process.env.CONTENTSTACK_DELIVERY_TOKEN;
+const environment = process.env.CONTENTSTACK_ENVIRONMENT;
+
+if (!apiKey || !deliveryToken || !environment) {
+  console.warn('Contentstack SDK: Missing required environment variables:', {
+    hasApiKey: !!apiKey,
+    hasDeliveryToken: !!deliveryToken,
+    hasEnvironment: !!environment,
+  });
+}
+
 // Initialize Stack
 const Stack = contentstack.Stack({
-  api_key: process.env.CONTENTSTACK_API_KEY
-    ? process.env.CONTENTSTACK_API_KEY
-    : process.env.NEXT_PUBLIC_CONTENTSTACK_API_KEY,
-  delivery_token: process.env.CONTENTSTACK_DELIVERY_TOKEN,
-  environment: process.env.CONTENTSTACK_ENVIRONMENT,
+  api_key: apiKey,
+  delivery_token: deliveryToken,
+  environment: environment,
   region: process.env.CONTENTSTACK_REGION ? process.env.CONTENTSTACK_REGION : 'us',
   live_preview: {
     enable: true,
@@ -109,11 +120,25 @@ export default {
           resolve(result[0]);
         },
         (error) => {
-          console.error(error);
+          const errorDetails = {
+            message: error?.message || 'Unknown error',
+            code: error?.code || error?.error_code,
+            contentTypeUid,
+            entryUrl,
+            errorString: JSON.stringify(error, Object.getOwnPropertyNames(error)),
+          };
+          console.error('Contentstack getEntryByUrl error:', errorDetails);
           reject(error);
         },
       ).catch((err) => {
-          console.error(err);
+          const errorDetails = {
+            message: err?.message || 'Unknown error',
+            code: err?.code || err?.error_code,
+            contentTypeUid,
+            entryUrl,
+            errorString: JSON.stringify(err, Object.getOwnPropertyNames(err)),
+          };
+          console.error('Contentstack getEntryByUrl catch:', errorDetails);
           reject(err);
         });
     });

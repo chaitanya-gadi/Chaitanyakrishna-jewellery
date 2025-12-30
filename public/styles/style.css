@@ -66,13 +66,15 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  padding: 23px 30px;
+  padding: 23px 12px;
   letter-spacing: 0.2px;
   text-transform: capitalize;
 }
 
 nav ul li a {
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 13px;
+  white-space: nowrap;
 }
 
 .top-section h2,
@@ -103,6 +105,25 @@ header .wrapper-logo img {
   width: 130px;
 }
 
+.logo-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a2e;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.logo-icon {
+  font-size: 24px;
+}
+
+.logo-text:hover {
+  color: #d4af37;
+}
+
 header nav {
   flex: 1 1 100%;
   text-align: right;
@@ -126,6 +147,10 @@ header nav {
 
 .header-ul {
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
 }
 
 header nav li a:hover,
@@ -138,13 +163,74 @@ header nav li a.active {
 }
 
 footer {
-  margin-top: 75px;
-  background: #fff;
+  margin-top: 0;
+  background: #1a1a2e;
+  padding-top: 50px;
 }
 
 footer a {
-  color: #222222;
+  color: rgba(255, 255, 255, 0.8);
   padding: 12px;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #d4af37;
+}
+
+.footer-logo-link {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.footer-logo-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #d4af37;
+  letter-spacing: 1px;
+}
+
+.footer-logo-icon {
+  font-size: 22px;
+}
+
+.footer-tagline {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-style: italic;
+  margin: 0;
+}
+
+.krishna-footer .social-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin: 0 5px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.krishna-footer .social-nav a:hover {
+  background: #d4af37;
+  border-color: #d4af37;
+  color: #1a1a2e;
+}
+
+.krishna-footer .nav-ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.krishna-footer .footer-nav-li {
+  padding: 8px 15px;
 }
 
 .footer-div {
@@ -167,8 +253,12 @@ footer a {
 }
 
 .copyright {
-  padding: 5px;
+  padding: 20px;
   text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  margin-top: 40px;
 }
 
 .contact-form {
@@ -1467,4 +1557,590 @@ footer a {
 .description,
 .description p {
   margin-bottom: 0;
+}
+
+/* Jewelry Hero Banner */
+.jewelry-hero {
+  position: relative;
+  min-height: 600px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.jewelry-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.jewelry-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.jewelry-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  padding: 40px 20px;
+}
+
+.jewelry-hero-tagline {
+  color: #d4af37;
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.jewelry-hero-title {
+  color: #ffffff;
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+.jewelry-hero-title .gold-text {
+  color: #d4af37;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.jewelry-hero-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.jewelry-hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.jewelry-btn-primary {
+  background: linear-gradient(135deg, #d4af37 0%, #b8962e 100%);
+  color: #1a1a2e !important;
+  padding: 16px 40px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.jewelry-btn-primary:hover {
+  background: linear-gradient(135deg, #e5c45a 0%, #d4af37 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.jewelry-btn-secondary {
+  background: transparent;
+  color: #d4af37 !important;
+  padding: 16px 40px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid #d4af37;
+  transition: all 0.3s ease;
+}
+
+.jewelry-btn-secondary:hover {
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateY(-2px);
+}
+
+.jewelry-hero-features {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.feature-icon {
+  color: #d4af37;
+  font-size: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .jewelry-hero {
+    min-height: 500px;
+  }
+  
+  .jewelry-hero-title {
+    font-size: 32px;
+  }
+  
+  .jewelry-hero-description {
+    font-size: 15px;
+  }
+  
+  .jewelry-hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .jewelry-btn-primary,
+  .jewelry-btn-secondary {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .jewelry-hero-features {
+    gap: 20px;
+  }
+  
+  .feature-item {
+    font-size: 12px;
+  }
+}
+
+/* Jewelry Home Content */
+.jewelry-home {
+  background: #faf9f7;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 400;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+/* Categories Section */
+.jewelry-categories-section {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+.category-image-wrapper {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover .category-image {
+  transform: scale(1.1);
+}
+
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(26, 26, 46, 0.7) 0%, transparent 60%);
+}
+
+.category-name {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* New Arrivals Section */
+.jewelry-arrivals-section {
+  padding: 80px 0;
+  background: #faf9f7;
+}
+
+.arrivals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.arrival-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.arrival-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.arrival-image-wrapper {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.arrival-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.new-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #d4af37;
+  color: #1a1a2e;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+.arrival-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.arrival-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+}
+
+.arrival-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 12px 20px;
+  background: #1a1a2e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background: #d4af37;
+  color: #1a1a2e;
+}
+
+/* Features Section */
+.jewelry-features-section {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.feature-card .feature-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.feature-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+
+.feature-description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Special Offer Section */
+.jewelry-offer-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  text-align: center;
+}
+
+.offer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.offer-tagline {
+  color: #d4af37;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.offer-title {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.offer-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.offer-code {
+  background: rgba(212, 175, 55, 0.2);
+  color: #d4af37;
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.offer-btn {
+  display: inline-block;
+  background: #d4af37;
+  color: #1a1a2e !important;
+  padding: 16px 50px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.offer-btn:hover {
+  background: #e5c45a;
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 1024px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .arrivals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .arrivals-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .offer-title {
+    font-size: 28px;
+  }
+  
+  .jewelry-categories-section,
+  .jewelry-arrivals-section,
+  .jewelry-features-section,
+  .jewelry-offer-section {
+    padding: 50px 0;
+  }
+}
+
+/* Testimonials Banner */
+.testimonials-banner {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-heading {
+  color: #d4af37;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.testimonials-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 500px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+.quote-icon {
+  font-size: 60px;
+  color: #d4af37;
+  opacity: 0.4;
+  font-family: Georgia, serif;
+  line-height: 1;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+.testimonial-quote {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.8;
+  font-style: italic;
+  margin: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  color: #d4af37;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .testimonials-banner {
+    padding: 40px 15px;
+  }
+  
+  .testimonials-heading {
+    font-size: 24px;
+  }
+  
+  .testimonial-card {
+    padding: 20px;
+  }
+  
+  .testimonial-quote {
+    font-size: 14px;
+  }
 }

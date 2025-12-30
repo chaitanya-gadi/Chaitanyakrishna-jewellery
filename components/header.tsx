@@ -82,19 +82,12 @@ export default function Header() {
       </div>
       <div className='max-width header-div'>
         <div className='wrapper-logo'>
-          {headerData ? (
-            <Link href='/' className='logo-tag' title='Contentstack'>
-              <img
-                className='logo'
-                src={headerData.logo.url}
-                alt={headerData.title}
-                title={headerData.title}
-                {...headerData.logo.$?.url as {}}
-              />
-            </Link>
-          ) : (
-            <Skeleton width={150} />
-          )}
+          <Link href='/' className='logo-tag' title='KRISHNA JEWELLERY'>
+            <span className='logo-text'>
+              <span className='logo-icon'>💎</span>
+              KRISHNA JEWELLERY
+            </span>
+          </Link>
         </div>
         <input className='menu-btn' type='checkbox' id='menu-btn' />
         <label className='menu-icon' htmlFor='menu-btn'>
@@ -102,25 +95,36 @@ export default function Header() {
         </label>
         <nav className='menu'>
           <ul className='nav-ul header-ul'>
-            {headerData ? (
-              headerData.navigation_menu.map((list) => {
-                const className =
-                  pathname === list.page_reference[0].url ? 'active' : '';
-                return (
-                  <li
-                    key={list.label}
-                    className='nav-li'
-                    {...list.page_reference[0].$?.url as {}}
-                  >
-                    <Link href={list.page_reference[0].url} className={className}>
-                      {list.label}
-                    </Link>
-                  </li>
-                );
-              })
-            ) : (
-              <Skeleton width={300} />
-            )}
+            <li className='nav-li'>
+              <Link href='/rings' className={pathname === '/rings' ? 'active' : ''}>
+                Rings
+              </Link>
+            </li>
+            <li className='nav-li'>
+              <Link href='/necklaces' className={pathname === '/necklaces' ? 'active' : ''}>
+                Necklaces
+              </Link>
+            </li>
+            <li className='nav-li'>
+              <Link href='/earrings' className={pathname === '/earrings' ? 'active' : ''}>
+                Earrings
+              </Link>
+            </li>
+            <li className='nav-li'>
+              <Link href='/bracelets' className={pathname === '/bracelets' ? 'active' : ''}>
+                Bracelets
+              </Link>
+            </li>
+            <li className='nav-li'>
+              <Link href='/chokers' className={pathname === '/chokers' ? 'active' : ''}>
+                Chokers
+              </Link>
+            </li>
+            <li className='nav-li'>
+              <Link href='/pendants' className={pathname === '/pendants' ? 'active' : ''}>
+                Pendants
+              </Link>
+            </li>
           </ul>
         </nav>
 

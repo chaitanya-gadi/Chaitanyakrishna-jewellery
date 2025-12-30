@@ -64,75 +64,61 @@ export default function Footer() {
   const footerData = getFooter ? getFooter : undefined;
 
   return (
-    <footer>
+    <footer className='krishna-footer'>
       <div className='max-width footer-div'>
         <div className='col-quarter'>
-          {footerData && footerData.logo ? (
-            <Link href='/' className='logo-tag'>
-              <img
-                src={footerData.logo.url}
-                alt={footerData.title}
-                title={footerData.title}
-                {...(footer?.logo?.$?.url as {})}
-                className='logo footer-logo'
-              />
-            </Link>
-          ) : (
-            <Skeleton width={150} />
-          )}
+          <Link href='/' className='logo-tag footer-logo-link'>
+            <span className='footer-logo-text'>
+              <span className='footer-logo-icon'>💎</span>
+              KRISHNA JEWELLERY
+            </span>
+          </Link>
+          <p className='footer-tagline'>Timeless Elegance, Crafted for You</p>
         </div>
         <div className='col-half'>
           <nav>
             <ul className='nav-ul'>
-              {footerData ? (
-                footerData.navigation.link.map((menu) => (
-                  <li
-                    className='footer-nav-li'
-                    key={menu.title}
-                    {...menu.$?.title}
-                  >
-                    <Link href={menu.href}>{menu.title}</Link>
-                  </li>
-                ))
-              ) : (
-                <Skeleton width={300} />
-              )}
+              <li className='footer-nav-li'>
+                <Link href='/rings'>Rings</Link>
+              </li>
+              <li className='footer-nav-li'>
+                <Link href='/necklaces'>Necklaces</Link>
+              </li>
+              <li className='footer-nav-li'>
+                <Link href='/earrings'>Earrings</Link>
+              </li>
+              <li className='footer-nav-li'>
+                <Link href='/bracelets'>Bracelets</Link>
+              </li>
+              <li className='footer-nav-li'>
+                <Link href='/chokers'>Chokers</Link>
+              </li>
+              <li className='footer-nav-li'>
+                <Link href='/pendants'>Pendants</Link>
+              </li>
             </ul>
           </nav>
         </div>
         <div className='col-quarter social-link'>
           <div className='social-nav'>
-            {footerData ? (
-              footerData.social?.social_share.map((social) => (
-                <a
-                  href={social.link.href}
-                  title={social.link.title}
-                  key={social.link.title}
-                >
-                  {social.icon && (
-                    <img
-                      src={social.icon.url}
-                      alt={social.link.title}
-                      {...social.icon.$?.url as {}}
-                    />
-                  )}
-                </a>
-              ))
-            ) : (
-              <Skeleton width={200} />
-            )}
+            <a href='https://facebook.com' title='Facebook' target='_blank' rel='noopener noreferrer'>
+              <i className='fab fa-facebook-f'></i>
+            </a>
+            <a href='https://instagram.com' title='Instagram' target='_blank' rel='noopener noreferrer'>
+              <i className='fab fa-instagram'></i>
+            </a>
+            <a href='https://twitter.com' title='Twitter' target='_blank' rel='noopener noreferrer'>
+              <i className='fab fa-twitter'></i>
+            </a>
+            <a href='https://pinterest.com' title='Pinterest' target='_blank' rel='noopener noreferrer'>
+              <i className='fab fa-pinterest'></i>
+            </a>
           </div>
         </div>
       </div>
-      {footerData && typeof footerData.copyright === 'string' ? (
-        <div className='copyright' {...footer?.$?.copyright as {}}>
-          {parse(footerData.copyright)}
-        </div>
-      ) : (
-        <div className='copyright'>
-          <Skeleton width={500} />
-        </div>
-      )}
+      <div className='copyright'>
+        © {new Date().getFullYear()} KRISHNA JEWELLERY. All Rights Reserved.
+      </div>
     </footer>
   );
 }
